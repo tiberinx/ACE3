@@ -1,7 +1,9 @@
 
 class CfgWeapons {
-    class InventoryFirstAidKitItem_Base_F;
-    class ACE_ItemInfo: InventoryFirstAidKitItem_Base_F {}; // ItemInfo: type = 401;
+    class InventoryItem_Base_F;
+    class ACE_ItemInfo: InventoryItem_Base_F {
+        type = 302; // "bipod"
+    };
     class ItemCore;
     class ACE_ItemCore: ItemCore { // type = 131072;
         class ItemInfo: ACE_ItemInfo {};
