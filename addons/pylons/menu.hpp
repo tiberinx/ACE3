@@ -6,6 +6,8 @@ class RscButtonMenu;
 class RscText;
 class RscPictureKeepAspect;
 
+class ctrlStaticPictureKeepAspect;
+
 class GVAR(DialogLoadout) {
     idd = ID_DIALOG;
     name = QGVAR(DialogLoadout);
@@ -33,16 +35,16 @@ class GVAR(DialogLoadout) {
             idc = ID_BACKGROUND_PICTURE;
             x = 0.171616 * safezoneW + safezoneX;
             y = 0.318 * safezoneH + safezoneY;
-            w = 0.440035 * safezoneW;
-            h = 0.392 * safezoneH;
+            w = "65 * pixelW * pixelGrid";
+            h = "35 * pixelH * pixelGrid";
             colorBackground[] = {0.3,0.3,0.3,1};
         };
-        class PictureAircraft: RscPictureKeepAspect {
+        class PictureAircraft: ctrlStaticPictureKeepAspect {
             idc = ID_PICTURE_AIRCRAFT;
             x = 0.171616 * safezoneW + safezoneX;
             y = 0.318 * safezoneH + safezoneY;
-            w = 0.440035 * safezoneW;
-            h = 0.392 * safezoneH;
+            w = "65 * pixelW * pixelGrid";
+            h = "35 * pixelH * pixelGrid";
         };
         class CheckboxMirror: RscCheckBox {
             idc = ID_CHECKBOX_MIRROR;
@@ -53,7 +55,8 @@ class GVAR(DialogLoadout) {
         };
         class TextMirror: RscText {
             idc = ID_TEXT_MIRROR;
-            text = CSTRING(Mirror);
+            text="$STR_3DEN_Object_Attribute_PylonsMirror_displayName";
+            tooltip="$STR_3DEN_Object_Attribute_PylonsMirror_tooltip";
             x = 0.188116 * safezoneW + safezoneX;
             y = 0.318 * safezoneH + safezoneY;
             w = 0.0656768 * safezoneW;
@@ -78,7 +81,7 @@ class GVAR(DialogLoadout) {
         };
         class TextListTitle: RscText {
             idc = ID_TEXT_LISTTITLE;
-            x = 0.624786 * safezoneW + safezoneX;
+            x = "((65 * pixelW * pixelGrid) - (0.440035 * safezoneW)) + 0.624786 * safezoneW + safezoneX";
             y = 0.318 * safezoneH + safezoneY;
             w = 0.203437 * safezoneW;
             h = 0.028 * safezoneH;
@@ -86,14 +89,14 @@ class GVAR(DialogLoadout) {
         };
         class ListLoadouts: RscListBox {
             idc = ID_LIST_LOADOUTS;
-            x = 0.624786 * safezoneW + safezoneX;
+            x = "((65 * pixelW * pixelGrid) - (0.440035 * safezoneW)) + 0.624786 * safezoneW + safezoneX";
             y = 0.346 * safezoneH + safezoneY;
             w = 0.203437 * safezoneW;
             h = 0.294 * safezoneH;
         };
         class EditLoadoutName: RscEdit {
             idc = ID_EDIT_LOADOUTNAME;
-            x = 0.624786 * safezoneW + safezoneX;
+            x = "((65 * pixelW * pixelGrid) - (0.440035 * safezoneW)) + 0.624786 * safezoneW + safezoneX";
             y = 0.64 * safezoneH + safezoneY;
             w = 0.203437 * safezoneW;
             h = 0.028 * safezoneH;
@@ -103,7 +106,7 @@ class GVAR(DialogLoadout) {
             idc = ID_BUTTON_SAVE;
             action = QUOTE(call FUNC(onButtonSave));
             text = "$STR_disp_int_save";
-            x = 0.624786 * safezoneW + safezoneX;
+            x = "((65 * pixelW * pixelGrid) - (0.440035 * safezoneW)) + 0.624786 * safezoneW + safezoneX";
             y = 0.682 * safezoneH + safezoneY;
             w = 0.0590625 * safezoneW;
             h = 0.028 * safezoneH;
@@ -112,7 +115,7 @@ class GVAR(DialogLoadout) {
             idc = ID_BUTTON_LOAD;
             action = QUOTE(call FUNC(onButtonLoad));
             text = "$STR_disp_int_load";
-            x = 0.69703 * safezoneW + safezoneX;
+            x = "((65 * pixelW * pixelGrid) - (0.440035 * safezoneW)) + 0.69703 * safezoneW + safezoneX";
             y = 0.682 * safezoneH + safezoneY;
             w = 0.0590625 * safezoneW;
             h = 0.028 * safezoneH;
@@ -121,7 +124,7 @@ class GVAR(DialogLoadout) {
             idc = ID_BUTTON_DELETE;
             action = QUOTE(call FUNC(onButtonDelete));
             text = "$STR_disp_delete";
-            x = 0.769275 * safezoneW + safezoneX;
+            x = "((65 * pixelW * pixelGrid) - (0.440035 * safezoneW)) + 0.769275 * safezoneW + safezoneX";
             y = 0.682 * safezoneH + safezoneY;
             w = 0.0590625 * safezoneW;
             h = 0.028 * safezoneH;

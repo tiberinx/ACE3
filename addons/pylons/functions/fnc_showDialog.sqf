@@ -59,12 +59,13 @@ GVAR(comboBoxes) = [];
 {
     private _combo = _display ctrlCreate ["ctrlCombo", -1];
     private _picturePos = ctrlPosition (_display displayCtrl ID_PICTURE_AIRCRAFT);
+
     private _uiPos = getArray (_x >> "UIposition");
     _combo ctrlSetPosition [
-        (_picturePos select 0) + (_uiPos select 0),
+        (_picturePos select 0) + (_uiPos select 0) + 2.5 * pixelW * pixelGrid,
         (_picturePos select 1) + (_uiPos select 1),
-        0.1 * safezoneW,
-        0.028 * safezoneH
+        13.6666 * pixelW * pixelGrid,
+        2.5 * pixelH * pixelGrid
     ];
     _combo ctrlCommit 0;
 
@@ -90,15 +91,16 @@ GVAR(comboBoxes) = [];
 
     private _button = controlNull;
     if (count allTurrets [_aircraft, false] > 0) then {
-        _button = _display ctrlCreate ["ctrlShortcutButton", -1];
+        _button = _display ctrlCreate ["ctrlButtonPictureKeepAspect", -1];
         private _turret = [_aircraft, _forEachIndex] call EFUNC(common,getPylonTurret);
+        TRACE_1("getPylonTurret",_turret);
         [_button, false, _turret] call FUNC(onButtonTurret);
         _button ctrlAddEventHandler ["ButtonClick", {[_this select 0, true, []] call FUNC(onButtonTurret)}];
         _button ctrlSetPosition [
-            (_picturePos select 0) + (_uiPos select 0) - (0.0165 * safezoneW),
+            (_picturePos select 0) + (_uiPos select 0),
             (_picturePos select 1) + (_uiPos select 1),
-            0.0165 * safezoneW,
-            0.028 * safezoneH
+             2.5 * pixelW * pixelGrid,
+             2.5 * pixelH * pixelGrid
         ];
         _button ctrlCommit 0;
     };

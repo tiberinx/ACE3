@@ -18,6 +18,7 @@
 #include "script_component.hpp"
 
 params ["_ctrl", "_switch", "_turret"];
+TRACE_3("onButtonTurret",_ctrl,_switch,_turret);
 
 if (_switch) then {
     _turret = [[0], [-1]] select ((_ctrl getVariable QGVAR(turret)) isEqualTo [0]);
@@ -40,9 +41,9 @@ if (_switch) then {
 _ctrl setVariable [QGVAR(turret), _turret];
 
 if (_turret isEqualTo [-1]) then {
-    _ctrl ctrlSetStructuredText parseText "<img image='a3\ui_f\data\IGUI\RscIngameUI\RscUnitInfo\role_driver_ca.paa'/>";
+    _ctrl ctrlSetText "a3\ui_f\data\IGUI\Cfg\CommandBar\imageDriver_ca.paa";
     _ctrl ctrlSetTooltip localize "str_driver";
 } else {
-    _ctrl ctrlSetStructuredText parseText "<img image='a3\ui_f\data\IGUI\RscIngameUI\RscUnitInfo\role_gunner_ca.paa'/>";
+    _ctrl ctrlSetText "a3\ui_f\data\IGUI\Cfg\CommandBar\imageGunner_ca.paa";
     _ctrl ctrlSetTooltip localize "str_gunner";
 };
