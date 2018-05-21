@@ -1,0 +1,3 @@
+#!/bin/bash
+
+docker run -v $(pwd):/ACE3 -w /ACE3 acemod/armake make -j 2
