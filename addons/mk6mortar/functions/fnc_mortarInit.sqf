@@ -32,7 +32,11 @@ private _currentWeapon = _mortar weaponsTurret [0] select 0;
 private _newWeapon = "";
 
 if (_currentWeapon == "mortar_82mm") then {
-    _newWeapon = "ace_mortar_82mm";
+    if (GVAR(useChargeSystem)) then {
+        _newWeapon = "ACE_mortar_82mm_no_charges";
+    } else {
+        _newWeapon = "ace_mortar_82mm";
+    }
 } else {
     _newWeapon = getText (configFile >> "CfgWeapons" >> _currentWeapon >> QGVAR(replaceWith));
 };

@@ -11,6 +11,15 @@ class CfgVehicles {
                     exceptions[] = {"notOnMap", "isNotInside", "isNotSitting"};
                 };
             };
+            class ACE_Ammunition {
+                displayName = CSTRING(ammunition_action);
+                condition = QUOTE(GVAR(useCharges));
+                exceptions[] = {"isNotSwimming", "isNotInside", "notOnMap", "isNotSitting"};
+                statement = "";
+                insertChildren = QUOTE([_player] call FUNC(addPrepRoundActions););
+                showDisabled = 1;
+                icon = "";
+            };
         };
     };
 
@@ -50,36 +59,7 @@ class CfgVehicles {
                 statement = "";
                 icon = "";
                 selection = "usti hlavne";
-                class GVAR(loadMagazine_HE_Guided) {
-                    displayName = CSTRING(loadMagazine_HE_Guided);
-                    condition = QUOTE([ARR_3(_target,_player,'ACE_1Rnd_82mm_Mo_HE_Guided')] call FUNC(canLoadMagazine));
-                    statement = QUOTE([ARR_4(_target,_player,8,'ACE_1Rnd_82mm_Mo_HE_Guided')] call FUNC(loadMagazineTimer));
-                    icon = "";
-                };
-                class GVAR(loadMagazine_HE_LaserGuided) {
-                    displayName = CSTRING(loadMagazine_HE_LaserGuided);
-                    condition = QUOTE([ARR_3(_target,_player,'ACE_1Rnd_82mm_Mo_HE_LaserGuided')] call FUNC(canLoadMagazine));
-                    statement = QUOTE([ARR_4(_target,_player,8,'ACE_1Rnd_82mm_Mo_HE_LaserGuided')] call FUNC(loadMagazineTimer));
-                    icon = "";
-                };
-                class GVAR(loadMagazine_Illum) {
-                    displayName = CSTRING(loadMagazine_Illum);
-                    condition = QUOTE([ARR_3(_target,_player,'ACE_1Rnd_82mm_Mo_Illum')] call FUNC(canLoadMagazine));
-                    statement = QUOTE([ARR_4(_target,_player,5,'ACE_1Rnd_82mm_Mo_Illum')] call FUNC(loadMagazineTimer));
-                    icon = "";
-                };
-                class GVAR(loadMagazine_Smoke) {
-                    displayName = CSTRING(loadMagazine_Smoke);
-                    condition = QUOTE([ARR_3(_target,_player,'ACE_1Rnd_82mm_Mo_Smoke')] call FUNC(canLoadMagazine));
-                    statement = QUOTE([ARR_4(_target,_player,2.5,'ACE_1Rnd_82mm_Mo_Smoke')] call FUNC(loadMagazineTimer));
-                    icon = "";
-                };
-                class GVAR(loadMagazine_HE) {
-                    displayName = CSTRING(loadMagazine_HE);
-                    condition = QUOTE([ARR_3(_target,_player,'ACE_1Rnd_82mm_Mo_HE')] call FUNC(canLoadMagazine));
-                    statement = QUOTE([ARR_4(_target,_player,2.5,'ACE_1Rnd_82mm_Mo_HE')] call FUNC(loadMagazineTimer));
-                    icon = "";
-                };
+                insertChildren = QUOTE([ARR_2(_player, _target)] call FUNC(addLoadMagazineActions););
             };
         };
         class ACE_SelfActions {
@@ -125,6 +105,12 @@ class CfgVehicles {
             class useAmmoHandling {
                 displayName = CSTRING(useAmmoHandling_DisplayName);
                 description = CSTRING(useAmmoHandling_Description);
+                typeName = "BOOL";
+                defaultValue = 0;
+            };
+            class useChargeSystem {
+                displayName = CSTRING(useChargeSystem_DisplayName);
+                description = CSTRING(useChargeSystem_Description);
                 typeName = "BOOL";
                 defaultValue = 0;
             };

@@ -16,9 +16,9 @@ class ACE_82mm_RangeTable_Dialog {
         };
         class ChargeBackground: RscText {
             idc = -1;
-            x = "14 *(safeZoneH / 40) +       (safezoneX + (safezoneW - safeZoneH)/2)";
+            x = "12 *(safeZoneH / 40) +       (safezoneX + (safezoneW - safeZoneH)/2)";
             y = "1 * ((safeZoneH / 1.2) / 25) +   (safezoneY + (safezoneH - (safeZoneH / 1.2))/2)";
-            w = "4 * (safeZoneH / 40)";
+            w = "6 * (safeZoneH / 40)";
             h = "5 * ((safeZoneH / 1.2) / 25)";
             colorBackground[] = {0,0,0,1};
         };
@@ -55,9 +55,9 @@ class ACE_82mm_RangeTable_Dialog {
         class ChargeListBox: RscListbox {
             idc = 1501;
             style = ST_RIGHT;
-            x = "14 *(safeZoneH / 40) + (safezoneX + (safezoneW - safeZoneH)/2)";
+            x = "12 *(safeZoneH / 40) + (safezoneX + (safezoneW - safeZoneH)/2)";
             y = "1 * ((safeZoneH / 1.2) / 25) + (safezoneY + (safezoneH - (safeZoneH / 1.2))/2)";
-            w = "4 * (safeZoneH / 40)";
+            w = "6 * (safeZoneH / 40)";
             h = "5 * ((safeZoneH / 1.2) / 25)";
             onLBSelChanged = QUOTE(_this call FUNC(rangeTablePageChange));
         };

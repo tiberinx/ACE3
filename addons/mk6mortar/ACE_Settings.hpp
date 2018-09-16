@@ -32,4 +32,12 @@ class ACE_Settings {
         typeName = "BOOL";
         isClientSetable = 0;
     };
+    class GVAR(useChargeSystem) {
+        category = CSTRING(DisplayName);
+        displayName = CSTRING(useChargeSystem_DisplayName);
+        description = CSTRING(useChargeSystem_Description);
+        value = 0;
+        typeName = "BOOL";
+        isClientSetable = 0;
+    };
 };
