@@ -273,6 +273,9 @@
             <Chinese>卸除彈頭中</Chinese>
         </Key>
         <Key ID="STR_ACE_Mk6Mortar_loadingMortar">
+            <English>Loading Round</English>
+        </Key>
+        <Key ID="STR_ACE_Mk6Mortar_prepRound">
             <English>Preparing Round</English>
             <German>Patrone vorbereiten</German>
             <Spanish>Preparando ronda</Spanish>
