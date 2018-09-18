@@ -28,7 +28,7 @@ if ((_unit call CBA_fnc_getUnitAnim) select 0 == "stand") then {
 
 private _timeToLoad = 5;
 
-if (isNil(_magazineClassOptional)) then {
+if (isNil _magazineClassOptional) then {
     private _configTime = configFile >> "CfgMagazines" >> _magazineClassOptional >> QGVAR(timeToLoad);
     // Default to 5 seconds if the magazine doesn't have a time to load
     if (isNumber(_configTime)) then {
