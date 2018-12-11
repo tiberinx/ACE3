@@ -1,4 +1,4 @@
-.REICIPEPREFIX +=
+.RECIPEPREFIX +=
 
 VERSION = $(shell cat "VERSION")
 PREFIX = ace
@@ -15,6 +15,8 @@ BUILD = $(word 4, $(subst ., ,$(VERSION)))
 VERSION_S = $(MAJOR).$(MINOR).$(PATCH)
 GIT_HASH = $(shell git log -1 --pretty=format:"%H" | head -c 8)
 
+ARMAKE = armake
+ZIP = zip
 ifeq ($(OS), Windows_NT)
     ifeq ($(MSYSTEM),MINGW64)
         ARMAKE := ./tools/toolset/bin/armake_w64.exe
@@ -22,7 +24,7 @@ ifeq ($(OS), Windows_NT)
     else
         ifeq ($(PROCESSOR_ARCHITEW6432),AMD64)
             ARMAKE := .\tools\toolset\bin\armake_w64.exe
-        else:
+        else
             ifeq ($(PROCESSOR_ARCHITECTURE),AMD64)
                 ARMAKE := .\tools\toolset\bin\armake_w64.exe
             else
