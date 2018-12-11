@@ -1,2 +1,2 @@
-tools\bin\make\bin\make.exe -j4
+tools\toolset\bin\make\bin\make.exe -j4
 pause
