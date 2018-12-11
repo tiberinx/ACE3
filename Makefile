@@ -15,20 +15,20 @@ BUILD = $(word 4, $(subst ., ,$(VERSION)))
 VERSION_S = $(MAJOR).$(MINOR).$(PATCH)
 GIT_HASH = $(shell git log -1 --pretty=format:"%H" | head -c 8)
 
-ARMAKE = armake
+ARMAKE = armake2
 ZIP = zip
 ifeq ($(OS), Windows_NT)
     ifeq ($(MSYSTEM),MINGW64)
-        ARMAKE := ./tools/toolset/bin/armake_w64.exe
+        ARMAKE := ./tools/toolset/bin/armake2_w64.exe
         ZIP := ./tools/toolset/bin/zip.exe
     else
         ifeq ($(PROCESSOR_ARCHITEW6432),AMD64)
-            ARMAKE := .\tools\toolset\bin\armake_w64.exe
+            ARMAKE := .\tools\toolset\bin\armake2_w64.exe
         else
             ifeq ($(PROCESSOR_ARCHITECTURE),AMD64)
-                ARMAKE := .\tools\toolset\bin\armake_w64.exe
+                ARMAKE := .\tools\toolset\bin\armake2_w64.exe
             else
-                ARMAKE := .\tools\toolset\bin\armake_w32.exe
+                ARMAKE := .\tools\toolset\bin\armake2_w32.exe
             endif
         endif
         ZIP := .\tools\toolset\bin\zip.exe
