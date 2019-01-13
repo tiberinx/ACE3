@@ -161,4 +161,25 @@ class CfgAmmo {
         whistleDist = 0;    // no BIS explosion effects
         whistleOnFire = 0;  // no BIS firing effects
     };
+
+    // Non-bouncing 40mm smokes
+    class ShotDeployBase;
+    class ACE_40mm_smoke_white_launch: ShotDeployBase {
+        submunitionAmmo = "ACE_40mm_smoke_white_deploy";
+        simulation = "shotDeploy";
+    };
+    class ACE_40mm_smoke_white_deploy: SmokeShell {
+        model = "\A3\weapons_f\Ammo\UGL_slug";
+        explosionTime = 0.05;
+    };
+    // class G_40mm_SmokeRed: G_40mm_Smoke {};
+    class ACE_40mm_smoke_red_launch: ShotDeployBase {
+        submunitionAmmo = "ACE_40mm_smoke_red_deploy";
+        simulation = "shotDeploy";
+    };
+    class SmokeShellRed: SmokeShell {};
+    class ACE_40mm_smoke_red_deploy: SmokeShellRed {
+        model = "\A3\weapons_f\Ammo\UGL_slug";
+        explosionTime = 0.05;
+    };
 };

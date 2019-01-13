@@ -120,4 +120,19 @@ class CfgMagazines {
         displayName = CSTRING(40mm_flare_ir);
         descriptionShort = CSTRING(parachute_flare_ir_description);
     };
+
+    // Non-bouncing 40mm smokes
+    class 1Rnd_Smoke_Grenade_shell;
+    class ACE_40mm_Smoke_white: 1Rnd_Smoke_Grenade_shell {
+        author = ECSTRING(common,ACETeam);
+        displayName = "Smoke Round (White) [No-bounce]";
+        ammo = "ACE_40mm_smoke_white_launch";
+    };
+    class 1Rnd_SmokeRed_Grenade_shell: 1Rnd_Smoke_Grenade_shell {};
+    class ACE_40mm_Smoke_red: 1Rnd_SmokeRed_Grenade_shell {
+        author = ECSTRING(common,ACETeam);
+        displayName = "Smoke Round (Red) [No-bounce]";
+        ammo = "ACE_40mm_smoke_red_launch";
+    };
+
 };
