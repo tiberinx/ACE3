@@ -17,7 +17,6 @@ class CfgVehicles {
                 exceptions[] = {"isNotSwimming", "isNotInside", "notOnMap", "isNotSitting"};
                 statement = "";
                 insertChildren = QUOTE([_player] call FUNC(addPrepRoundActions));
-                showDisabled = 1;
                 icon = "";
             };
         };

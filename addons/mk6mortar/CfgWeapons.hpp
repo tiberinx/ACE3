@@ -49,9 +49,9 @@ class CfgWeapons {
             "ACE_1Rnd_82mm_Mo_HE_Guided", "ACE_1Rnd_82mm_Mo_HE_Guided_Charge_1","ACE_1Rnd_82mm_Mo_HE_Guided_Charge_2","ACE_1Rnd_82mm_Mo_HE_Guided_Charge_3","ACE_1Rnd_82mm_Mo_HE_Guided_Charge_4",
             "ACE_1Rnd_82mm_Mo_HE_LaserGuided","ACE_1Rnd_82mm_Mo_HE_LaserGuided_Charge_1","ACE_1Rnd_82mm_Mo_HE_LaserGuided_Charge_2","ACE_1Rnd_82mm_Mo_HE_LaserGuided_Charge_3","ACE_1Rnd_82mm_Mo_HE_LaserGuided_Charge_4"
         };
-        modes[] = {"Single1"};
-        class Single1: Single1 {
-            displayName = "Semi";
+        modes[] = {"SingleFull"};
+        class SingleFull: Single1 {
+            displayName = "$STR_DN_MODE_SEMIAUTO"; // "Semi"
             artilleryCharge = 1;
         };
     };

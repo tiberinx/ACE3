@@ -1,7 +1,6 @@
 #include "script_component.hpp"
 /*
  * Author: Grey-Soldierman
- *
  * Prepares a mortar round with a particular charge using a timer
  *
  * Arguments:
@@ -21,15 +20,16 @@
  */
 
 params ["_unit", "_oldMagazine", "_newMagazine", "_chargeClass", "_chargesRequired"];
+TRACE_5("prepRoundTimer",_unit,_oldMagazine,_newMagazine,_chargeClass,_chargesRequired);
 
 // Move player into animation if player is standing
 if ((_unit call CBA_fnc_getUnitAnim) select 0 == "stand") then {
     [_unit, "AmovPercMstpSrasWrflDnon_diary", 1] call EFUNC(common,doAnimation);
 };
 
-if !(isNil (_newMagazine)) exitWith{ERROR("New magazine classname required");};
+if (isNil "_newMagazine") exitWith {ERROR("New magazine classname required");};
 
-_timeToPrep = configFile >> "CfgMagazines" >> _newMagazine >> QGVAR(timeToPrep);
+private _timeToPrep = configFile >> "CfgMagazines" >> _newMagazine >> QGVAR(timeToPrep);
 
 // Default to 5 seconds if the magazine doesn't have a time to prep
 if !(isNumber (_timeToPrep)) then {

@@ -18,13 +18,13 @@
 ["ace_initMortar", {_this call FUNC(mortarInit);}] call CBA_fnc_addEventHandler;
 
 if (hasInterface) then {
-    ["ace_infoDisplayChanged", FUNC(turretDisplayLoaded)] call CBA_fnc_addEventHandler;
+    ["ace_infoDisplayChanged", LINKFUNC(turretDisplayLoaded)] call CBA_fnc_addEventHandler;
 };
 
 ["ace_settingsInitialized", {
     TRACE_1("ace_settingsInitialized",GVAR(useAmmoHandling));
 
-    ["vehicle", FUNC(handlePlayerVehicleChanged), true] call CBA_fnc_addPlayerEventHandler;
+    ["vehicle", LINKFUNC(handlePlayerVehicleChanged), true] call CBA_fnc_addPlayerEventHandler;
 
     if (GVAR(useAmmoHandling)) then {
         ["Mortar_01_base_F", "init", {

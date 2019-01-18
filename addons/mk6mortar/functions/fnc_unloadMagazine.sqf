@@ -1,7 +1,6 @@
 #include "script_component.hpp"
 /*
  * Author: Grey
- *
  * Unload current magazine from static weapon
  *
  * Arguments:
@@ -29,7 +28,7 @@ if (_ammoCount > 0) then {
     if (_unit canAdd _currentMagazineClass) then {
         _unit addMagazineGlobal _currentMagazineClass;
     } else {
-        _pos = _unit modelToWorldVisual [0.5,0.5,0]; // Front right of player
+        private _pos = _unit modelToWorldVisual [0.5,0.5,0]; // Front right of player
         _unit = createVehicle ["WeaponHolder_Single_F",_pos,[],0,"NONE"];
         _unit addMagazineAmmoCargo [_currentMagazineClass, 1, _ammoCount];
         _unit setPosATL _pos;

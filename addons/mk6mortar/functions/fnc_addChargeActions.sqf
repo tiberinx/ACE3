@@ -11,7 +11,7 @@
  * Actions <ARRAY>
  *
  * Example:
- * [bob, 'ACE_1Rnd_82mm_Mo_HE'] call ace_mk6mortar_fnc_addPrepRoundActions
+ * [bob, 'ACE_1Rnd_82mm_Mo_HE'] call ace_mk6mortar_fnc_addChargeActions
  *
  * Public: No
  */
@@ -37,7 +37,6 @@ private _itemCount = [];
 } forEach _charges;
 
 
-private _chargeRequirement = 0;
 private _children = [];
 // Add an action for each charge
 {
@@ -51,6 +50,16 @@ private _children = [];
     private _chargeClass = getText (_x >> QGVAR(chargeClass));
     private _className = configName _x;
 
+    private _condition = if (_chargeRequirement < 0) then {
+        //IGNORE_PRIVATE_WARNING ["_player"];
+        {
+            (_this select 2) params ["", "", "_chargeClass", "_chargeRequirement"];
+            (-1 * _chargeRequirement) <= ({_x == _chargeClass} count items _player);
+        }
+    } else {
+        {true}
+    };
+    
     _children pushBack
         [
             [
@@ -61,7 +70,7 @@ private _children = [];
                     (_this select 2) params ["_magazine", "_className", "_chargeClass", "_chargeRequirement"];
                     [_this select 0, _magazine, _className, _chargeClass, _chargeRequirement] call FUNC(prepRoundTimer)
                 },
-                {true},
+                _condition,
                 {},
                 ([_magazine, _className, _chargeClass, _chargeRequirement])
             ] call EFUNC(interact_menu,createAction),
